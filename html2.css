@@ -1,20 +1,17 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
 }
 
 header {
-    background: linear-gradient(to right, #2c3e50, #3498db);
-    color: white;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding: 20px 0;
-}
-
-.logo {
-    margin-right: 20px;
+    padding: 20px;
+    background-color: #409EFF;
+    color: white;
+    font-size: 24px;
 }
 
 .container {
@@ -22,7 +19,6 @@ header {
 }
 
 nav {
-    background-color: #f5f5f5;
     width: 200px;
     padding: 20px;
 }
@@ -32,24 +28,19 @@ nav ul {
     padding: 0;
 }
 
-nav ul li {
-    padding: 10px 0;
-    cursor: pointer;
-}
-
-nav ul li:hover {
-    background-color: #ddd;
-}
-
-main {
-    padding: 20px;
-    flex-grow: 1;
-}
-
-section {
+nav li {
     margin-bottom: 20px;
 }
 
-section h2 {
-    margin-bottom: 10px;
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 20px;
 }

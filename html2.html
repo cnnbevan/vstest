@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.6/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="html2.css">
-    <title>项目详情</title>
 </head>
 <body>
     <header>
-        <div class="logo">LOGO</div>
-        <h1>项目详情</h1>
+        <span class="logo">Project Dashboard</span>
     </header>
-    <div class="container">
+    <div id="app" class="container">
         <nav>
             <ul>
                 <li>项目管理</li>
@@ -23,34 +23,50 @@
             </ul>
         </nav>
         <main>
-            <section class="info">
+            <section>
                 <h2>项目基本信息</h2>
-                <p>项目名称：示例项目</p>
-                <p>项目编号：12345</p>
-                <p>项目阶段：进行中</p>
-                <p>项目经理：张三</p>
+                <p>项目名称: 示例项目</p>
+                <p>项目编号: 00001</p>
+                <p>项目阶段: 进行中</p>
             </section>
-            <section class="progress">
-                <h2>项目进度总览</h2>
-                <p>设计阶段：80%</p>
-                <p>采购阶段：50%</p>
-                <p>施工阶段：30%</p>
-                <p>验收阶段：0%</p>
+            <section>
+                <h2>项目进度</h2>
+                <el-progress :percentage="70" :status="status"></el-progress>
             </section>
-            <section class="todo">
-                <h2>项目待办事项</h2>
-                <p>1. 与设计团队沟通修改设计方案。</p>
-                <p>2. 跟进采购进度，确保材料按时到货。</p>
-                <p>3. 安排施工现场协调会议。</p>
+            <section>
+                <h2>待办事项</h2>
+                <el-table :data="todos" style="width: 100%">
+                    <el-table-column prop="name" label="事项名称"></el-table-column>
+                    <el-table-column prop="dueDate" label="完成时间"></el-table-column>
+                    <el-table-column
+                        label="操作"
+                        width="120"
+                        fixed="right"
+                    >
+                        <template slot-scope="scope">
+                            <el-button @click="handle(scope.row)" type="primary" size="small">办理</el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
             </section>
-            <section class="risks">
+            <section>
                 <h2>项目风险与问题</h2>
-                <p>风险1：材料供应延迟，可能影响施工进度。</p>
-                <p>解决措施：加强与供应商的沟通，确保材料按时到货。</p>
-                <p>问题1：设计方案需要修改，可能导致项目延期。</p>
-                <p>解决措施：及时与设计团队沟通，尽快完成设计方案的修改。</p>
+                <el-alert
+                    title="这是一条警告的提示"
+                    type="warning"
+                    show-icon>
+                </el-alert>
+                <el-alert
+                    title="这是一条严重的提示"
+                    type="error"
+                    show-icon>
+                </el-alert>
             </section>
         </main>
     </div>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script>
+    <script src="html2.js"></script>
 </body>
 </html>
+

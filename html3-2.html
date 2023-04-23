@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改报价页面</title>
+    <link rel="stylesheet" href="html3-2.css">
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui@2.15.7/lib/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css">
+</head>
+<body>
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+          <li><a href="#">项目管理</a></li>
+          <li><a href="html3.html">报价管理</a></li>
+          <li><a href="#">采购管理</a></li>
+          <li><a href="#">计划管理</a></li>
+          <li><a href="#">进度监控</a></li>
+          <li><a href="#">查询统计</a></li>
+        </ul>
+      </div>
+      
+    <div id="app">
+        <h1>修改报价</h1>
+        <el-form :model="editQuotation">
+            <el-form-item label="序号">
+                <el-input v-model="editQuotation.id"></el-input>
+            </el-form-item>
+            <el-form-item label="大类">
+                <el-input v-model="editQuotation.majorCategory"></el-input>
+            </el-form-item>
+            <el-form-item label="类别">
+                <el-input v-model="editQuotation.category"></el-input>
+            </el-form-item>
+            <el-form-item label="材料名称">
+                <el-input v-model="editQuotation.materialName"></el-input>
+            </el-form-item>
+            <el-form-item label="规格型号">
+                <el-input v-model="editQuotation.specification"></el-input>
+            </el-form-item>
+            <el-form-item label="品牌要求">
+                <el-input v-model="editQuotation.brand"></el-input>
+            </el-form-item>
+            <el-form-item label="用量">
+                <el-input v-model="editQuotation.usage"></el-input>
+            </el-form-item>
+            <el-form-item label="单位">
+                <el-input v-model="editQuotation.unit"></el-input>
+            </el-form-item>
+            <el-form-item label="单价（元）">
+                <el-input v-model="editQuotation.price"></el-input>
+            </el-form-item>
+            <el-form-item label="建筑面积（㎡）">
+                <el-input v-model="editQuotation.constructionArea"></el-input>
+            </el-form-item>
+            <el-form-item label="特殊要求">
+                <el-input v-model="editQuotation.specialRequirement"></el-input>
+            </el-form-item>
+            <el-form-item label="小计（元）">
+                <el-input v-model="editQuotation.subTotal"></el-input>
+            </el-form-item>
+        </el-form>
+        <button @click="saveQuotation">保存</button>
+    </div>
+    <script src="html3-2.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>报价详情页</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="html3.css">
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <el-header>
+                <div class="logo">Logo</div>
+                <div class="user-center">用户中心图标</div>
+            </el-header>
+            <el-container>
+                <el-aside>
+                    <el-menu @select="handleSelect" mode="vertical">
+                        <el-menu-item index="1">项目管理</el-menu-item>
+                        <el-menu-item index="2">报价管理</el-menu-item>
+                        <el-menu-item index="3">采购管理</el-menu-item>
+                        <el-menu-item index="4">计划管理</el-menu-item>
+                        <el-menu-item index="5">进度监控</el-menu-item>
+                        <el-menu-item index="6">查询统计</el-menu-item>
+                    </el-menu>
+                </el-aside>
+                <el-main>
+                    <el-table :data="tableData" border style="width: 100%">
+                        <el-table-column prop="category" label="大类" width="100">
+                            <template slot-scope="scope">
+                                <el-select v-model="scope.row.category" placeholder="请选择">
+                                    <el-option
+                                        v-for="item in categories"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                    </el-option>
+                                </el-select>
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="type" label="类型" width="100">
+                            <template slot-scope="scope">
+                                <el-select v-model="scope.row.type" placeholder="请选择">
+                                    <el-option
+                                        v-for="item in types"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                    </el-option>
+                                </el-select>
+                            </template>
+                        </el-table-column>
+                        <!-- 其他列，请按照实际情况添加 -->
+                    </el-table>
+                    <div class="btn-group">
+                        <el-button type="primary">新增报价</el-button>
+                        <el-button type="primary">修改报价</el-button>
+                        <el-button type="primary">查看历史版本</el-button>
+                    </div>
+                </el-main>
+            </el-container>
+        </el-container>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="html3.js"></script>
+</body>
+</html>
